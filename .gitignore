@@ -1,0 +1,17 @@
+# Dependencies and generated builds
+node_modules/
+dist/
+.vite/
+
+# Local environment variables and Supabase credentials
+.env
+.env.*
+!.env.example
+
+# Logs and editor/system files
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

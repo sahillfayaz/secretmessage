@@ -1,0 +1,1 @@
+export default function Input({ label, error, ...props }) { return <label className="block"><span className="label">{label}</span><input className={`field ${error ? 'border-rose-500' : ''}`} {...props}/>{error && <span className="mt-1 block text-sm text-rose-600 dark:text-rose-400">{error}</span>}</label> }
