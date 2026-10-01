@@ -86,7 +86,7 @@ create or replace function public.login_inbox(p_public_token text, p_password te
 returns table(id uuid, name text, public_token text, is_active boolean) language plpgsql security definer set search_path = public, extensions as $$
 begin
   return query update inboxes set owner_token_hash=crypt(p_new_owner_token, gen_salt('bf', 12))
-  where public_token=p_public_token and recovery_enabled and recovery_key_hash=crypt(p_password, recovery_key_hash)
+  where inboxes.public_token=p_public_token and recovery_enabled and recovery_key_hash=crypt(p_password, recovery_key_hash)
   returning inboxes.id, inboxes.name, inboxes.public_token, inboxes.is_active;
 end $$;
 create or replace function public.update_inbox_name(p_inbox_id uuid, p_owner_token text, p_name text)
